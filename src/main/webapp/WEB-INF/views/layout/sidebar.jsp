@@ -43,7 +43,7 @@
             <tr>
 <%--                <td>${cart.image}<td>--%>
               <td>
-                <a href="/index?query=${cart.link}"> <img src="${cart.image}" width="140" height="140" alt="" ></a>
+                <a href="${cart.link}"> <img src="${cart.image}" width="140" height="140" alt="" ></a>
             </td>
 
                 <td> ${cart.title} <td>
