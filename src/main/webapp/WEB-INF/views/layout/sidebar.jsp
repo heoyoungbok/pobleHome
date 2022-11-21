@@ -24,38 +24,53 @@
     <!-- Core theme CSS (includes Bootstrap)-->
 </head>
 <style>
- body {
-     margin: 0px;
-     padding: 0px;
- }
- .big-box{
-     width: 100%;
-     height: 100vh;
-     border-top: 1px solid black;
- }
+    .big-box {
+        width: 100%;
+        background-color: gray;
+        height: 100vh;
+        border-top: 1px solid black;
+    }
+
+    body {
+        margin: 0px;
+        padding: 0px;
+    }
+
+
+
+
+ /*body {*/
+ /*    margin: 0px;*/
+ /*    padding: 0px;*/
+ /*}*/
+ /*.big-box{*/
+ /*    width: 100%;*/
+ /*    height: 100vh;*/
+ /*    border-top: 1px solid black;*/
+ /*}*/
 </style>
 <body>
 
 <div class="d-flex" id="wrapper">
-
     <!-- Sidebar-->
-    <div class="border-end bg-white" id="sidebar-wrapper">
-        <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
-        <div class="list-group list-group-flush">
+   <div class="border-end bg-white" id="sidebar-wrapper">
+       <div class="sidebar-heading border-bottom bg-light">POBLE</div>
+      <div class="list-group list-group-flush">
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Dashboard</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
+           <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
+          <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
+           <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
         </div>
     </div>
     <!-- Page content wrapper-->
 
 
-    <div id="page-content-wrapper">
+    <div id="page-content-wrapper" class="wall">
 
         <table class="table table-striped table-hover">
+
 
         <c:forEach items="${index}" var="cart">
 
@@ -67,8 +82,8 @@
                 <a href="${cart.link}"> <img src="${cart.image}" width="140" height="140" alt="" ></a>
             </td>
 
-                <td> ${cart.title} <td>
-                <td> ${cart.lprice} <td>
+                <td> ${cart.title} </td>
+                <td> ${cart.lprice} </td>
 
             <tr>
 
@@ -78,14 +93,16 @@
             </c:forEach>
         </table>
 <%--        <div class="big-box"><h1>page1</h1></div>--%>
-        <div class="box">page1</div>
-        <div class="box">page2</div>
+   <%--     <div class="box">page1</div>
+        <div class="box">page2</div>--%>
+
             <!-- Top navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
 
         </nav>
         <!-- Page content-->
-
+        <div class="big-box"><h1>Page 1</h1></div>
+        <div class="big-box"><h1>Page 2</h1></div>
 
     </div>
 
@@ -99,22 +116,31 @@
     //     }
     // });
     
-    let count =2;
-    window.onscroll = function (){
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
-            const toadd = document.createElement("div");
-            toadd.classList.add("box");
-            ++count;
-            toadd.textContent = $(count);
-            document.querySelector('section').appendChild(toadd);
-        }
-    }
+    // let count =2;
+    // window.onscroll = function (){
+    //     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
+    //         const toadd = document.createElement("div");
+    //         toadd.classList.add("box");
+    //         ++count;
+    //         toadd.textContent = $(count);
+    //         document.querySelector('section').appendChild(toadd);
+    //     }
+    // }
+    // var page = 2;
+    //
+    // $(window).scroll(function() {
+    //     if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+    //         console.log(++page);
+    //         $("body").append('<div class="big-box"><h1>Page ' + page + '</h1></div>');
+    //
+    //     }
+    // });
 </script>
 
 <!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
+<%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>--%>
+<%--<!-- Core theme JS-->--%>
+<%--<script src="js/scripts.js"></script>--%>
 
 
 

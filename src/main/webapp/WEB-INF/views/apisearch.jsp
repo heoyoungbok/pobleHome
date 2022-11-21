@@ -9,7 +9,7 @@
 
 <html>
 <head>
-    <title>apisearch.jsp</title>
+    <title>mainHome</title>
 </head>
 <body>
 

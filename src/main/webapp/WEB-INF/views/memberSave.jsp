@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
+
 <html>
 <head>
     <title>Title</title>
@@ -55,6 +57,16 @@
 
 
     const saveFn = () => {
+    if(document.saveForm.memberLoginID.value == ""){
+
+        const idCheck = document.getElementById("input-push");
+        const lock = document.getElementById("lock");
+
+        idCheck.innerHTML ="필수 항목입니다.";
+        idCheck.style.color="red";
+        lock.style.color="red";
+
+    }else if ()
 
     }
 </script>
