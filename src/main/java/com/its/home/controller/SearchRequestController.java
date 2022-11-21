@@ -17,6 +17,7 @@ public class SearchRequestController {
     @Autowired
     private final NaverShopSearch naverShopSearch;
 
+
     @GetMapping("/index")
     public String getItems(@RequestParam String query, Model model){
         String resultString = naverShopSearch.search(query);
@@ -24,5 +25,4 @@ public class SearchRequestController {
         model.addAttribute("index",itemDtos);
         return "index";
     }
-
 }
