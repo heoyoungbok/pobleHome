@@ -12,11 +12,9 @@
 <head>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/navbars/">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.104.2">
-    <link href="navbar.css" rel="stylesheet">
+
+
+
 
 
 </head>
@@ -46,8 +44,8 @@
 
             <div class="text-end">
                 <c:choose>
-                    <c:when test="${sessionScope.loginEmail != null}"> <%--로그인을 했으면    --%>
-                        <span>${sessionScope.loginEmail}님</span>
+                    <c:when test="${sessionScope.loginID != null}"> <%--로그인을 했으면    --%>
+                        <span>${sessionScope.loginID}님</span>
                         <button type="button" onclick="logout()" class="btn btn-outline-light me-2">Logout</button>
                         <button type="button" onclick="myPageFF()" class="btn btn-outline-light me-2">마이페이지</button>
                     </c:when>

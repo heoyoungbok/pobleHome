@@ -3,6 +3,6 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-<!--        <typeAlias type="com.lts.home.dto.MemberDTO" alias="member" />-->
+      <typeAlias type="com.its.home.dto.MemberDTO" alias="member"/>
     </typeAliases>
 </configuration>

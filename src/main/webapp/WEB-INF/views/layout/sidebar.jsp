@@ -54,7 +54,7 @@
 <div class="d-flex" id="wrapper">
     <!-- Sidebar-->
    <div class="border-end bg-white" id="sidebar-wrapper">
-       <div class="sidebar-heading border-bottom bg-light">POBLE</div>
+       <div class="sidebar-heading border-bottom bg-light">side-manu</div>
       <div class="list-group list-group-flush">
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Dashboard</a>
            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
@@ -67,31 +67,7 @@
     <!-- Page content wrapper-->
 
 
-    <div id="page-content-wrapper" class="wall">
 
-        <table class="table table-striped table-hover">
-
-
-        <c:forEach items="${index}" var="cart">
-
-            <div>
-
-            <tr>
-<%--                <td>${cart.image}<td>--%>
-              <td>
-                <a href="${cart.link}"> <img src="${cart.image}" width="140" height="140" alt="" ></a>
-            </td>
-
-                <td> ${cart.title} </td>
-                <td> ${cart.lprice} </td>
-
-            <tr>
-
-<%--                <div class="big-box"><h2>page2</h2></div>--%>
-            </div>
-
-            </c:forEach>
-        </table>
 <%--        <div class="big-box"><h1>page1</h1></div>--%>
    <%--     <div class="box">page1</div>
         <div class="box">page2</div>--%>

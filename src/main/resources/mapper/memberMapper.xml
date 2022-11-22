@@ -4,16 +4,17 @@
 
 
 <mapper namespace="Member">
-<!--    <insert id="kakaoInsert">-->
-<!--        INSERT INTO TBL_MEMBER (USERID, USERPW, USERNAME, EMAIL, SNSID) VALUES-->
-<!--            (#{userid}, #{userpw}, #{userName}, #{email}, #{snsId})-->
-<!--    </insert>-->
-
+<insert id="save" parameterType="member">
+    insert into member_table(memberName,memberLoginID,memberPassword,memberMobile,memberAge,postcode,roadAddress,jibunAddress,detailAddress,fileAttached)
+    values (#{memberName},#{memberLoginID},#{memberPassword},#{memberMobile},#{memberAge},#{postcode},#{roadAddress},#{jibunAddress},#{detailAddress},#{fileAttached})
+</insert>
     <select id="joinCheck" parameterType="String" resultType="String">
         select memberLoginID from member_tabel where memberLoginID=#{memberLoginID}
     </select>
 
-
+    <select id="login" parameterType="member" resultType="member">
+        select * from member_table where memberLoginID=#{memberLoginID} and memberPassword=#{memberPassword}
+    </select>
 </mapper>
 
 

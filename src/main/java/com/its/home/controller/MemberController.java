@@ -1,12 +1,11 @@
 package com.its.home.controller;
 
+import com.its.home.dto.MemberDTO;
 import com.its.home.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 
@@ -21,8 +20,10 @@ public class MemberController {
     }
 
     @PostMapping("/save")
-    public String save(){
-        return "save";
+    public String save(@ModelAttribute MemberDTO memberDTO, Model model){
+       boolean result = memberService.save(memberDTO);
+       model.addAttribute("result",result);
+        return "memberLogin";
     }
 
     @GetMapping("/joinCheck")
@@ -30,6 +31,8 @@ public class MemberController {
        String checkResult = memberService.joinCheck(memberLoginID);
        return checkResult;
 
-
     }
+
+
+
 }

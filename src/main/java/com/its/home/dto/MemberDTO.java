@@ -12,14 +12,18 @@ public  class MemberDTO {
 
     private Long memberId;
     private String memberName;
-    private String memberNickName;
     private String memberLoginID;
-    private String memberPassWord;
+    private String memberPassword;
     private String memberMobile;
     private int memberAge;
-    private MultipartFile boardFile;
+    private String postcode;
+    private String roadAddress;
+    private String jibunAddress;
+    private String detailAddress;
     private String originalFileName;
     private String storedFileName;
+
     private int fileAttached;
+
 
 }
