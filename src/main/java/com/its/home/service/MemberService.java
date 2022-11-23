@@ -6,6 +6,8 @@ import com.its.home.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 //@Log4j
 
 @Service
@@ -58,6 +60,17 @@ public class MemberService {
     }
 
 
+    public List<MemberDTO> memberList() {
+        return memberRepository.memberList();
+    }
+
+    public MemberDTO findById(String memberLoginID) {
+        return memberRepository.findById(memberLoginID);
+    }
+
+    public void modify(MemberDTO memberDTO) {
+        memberRepository.modify(memberDTO);
+    }
 }
 
 

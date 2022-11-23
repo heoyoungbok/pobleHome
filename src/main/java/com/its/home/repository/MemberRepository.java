@@ -5,6 +5,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class MemberRepository {
     @Autowired
@@ -28,5 +30,17 @@ public class MemberRepository {
         member.setMemberLoginID(memberLoginID);
         member.setMemberPassword(memberPassword);
         return sql.selectOne("Member.login",member);
+    }
+
+    public List<MemberDTO> memberList() {
+        return sql.selectList("Member.memberList");
+    }
+
+    public MemberDTO findById(String memberLoginID) {
+        return sql.selectOne("Member.findById",memberLoginID);
+    }
+
+    public void modify(MemberDTO memberDTO) {
+        sql.update("Member.modify",memberDTO);
     }
 }

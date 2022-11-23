@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+import java.util.List;
+
 @Controller
 
 public class MemberController {
@@ -15,24 +18,52 @@ public class MemberController {
     private MemberService memberService;
 
     @GetMapping("/save")
-    public String saveForm(){
+    public String saveForm() {
         return "memberSave";
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute MemberDTO memberDTO, Model model){
-       boolean result = memberService.save(memberDTO);
-       model.addAttribute("result",result);
+    public String save(@ModelAttribute MemberDTO memberDTO, Model model) {
+        boolean result = memberService.save(memberDTO);
+        model.addAttribute("result", result);
         return "memberLogin";
     }
 
     @GetMapping("/joinCheck")
-    public @ResponseBody String joinCheck(@RequestParam("inputId")String memberLoginID) {
-       String checkResult = memberService.joinCheck(memberLoginID);
-       return checkResult;
+    public @ResponseBody String joinCheck(@RequestParam("inputId") String memberLoginID) {
+        String checkResult = memberService.joinCheck(memberLoginID);
+        return checkResult;
 
     }
 
+    @GetMapping("/memberList")
+    public String memberList(Model model){
+        List<MemberDTO> memberList = memberService.memberList();
+        model.addAttribute("memberList",memberList);
+        return "memberList";
+    }
 
+    @GetMapping("/modify")
+    public String modifyForm(HttpSession session, Model model){
+        String memberLoginID = (String) session.getAttribute("loginID");
+        MemberDTO memberDTO = memberService.findById(memberLoginID);
+        model.addAttribute("member",memberDTO);
+        return "modify";
+    }
+    @PostMapping("/modify")
+    public String modify(@ModelAttribute MemberDTO memberDTO, Model model){
+        memberService.modify(memberDTO);
+        MemberDTO dto = memberService.findById(memberDTO.getMemberLoginID());
+        model.addAttribute("member",dto);
+        return "main";
+    }
+
+    @GetMapping("/myPage")
+    public String myPageForm(){
+        return "myPage";
+    }
 
 }
+//    @GetMapping ("/findby")
+//
+//}

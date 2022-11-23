@@ -15,6 +15,18 @@
     <select id="login" parameterType="member" resultType="member">
         select * from member_table where memberLoginID=#{memberLoginID} and memberPassword=#{memberPassword}
     </select>
+
+    <select id="memberList" resultType="member">
+        select * from member_table
+    </select>
+
+    <select id="findById" parameterType="String" resultType="member">
+        select * from member_table where memberLoginID=#{memberLoginID}
+    </select>
+
+    <update id="modify" parameterType="member">
+        update member_table set memberMobile=#{memberMobile} ,memberAge=#{memberAge}, postcode=#{postcode}, roadAddress=#{roadAddress} ,jibunAddress=#{jibunAddress}, detailAddress=#{detailAddress}, fileAttached=#{fileAttached}
+    </update>
 </mapper>
 
 

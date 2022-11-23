@@ -39,4 +39,12 @@ private MemberService memberService;
             return "memberLogin";
         }
     }
+
+    @GetMapping("logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "main";
+    }
+
+
 }
