@@ -27,6 +27,10 @@
     <update id="modify" parameterType="member">
         update member_table set memberMobile=#{memberMobile} ,memberAge=#{memberAge}, postcode=#{postcode}, roadAddress=#{roadAddress} ,jibunAddress=#{jibunAddress}, detailAddress=#{detailAddress}, fileAttached=#{fileAttached}
     </update>
+
+  <select id="findAll" resultType="member">
+      select * from member_table
+  </select>
 </mapper>
 
 

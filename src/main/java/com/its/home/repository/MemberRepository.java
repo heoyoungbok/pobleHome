@@ -43,4 +43,8 @@ public class MemberRepository {
     public void modify(MemberDTO memberDTO) {
         sql.update("Member.modify",memberDTO);
     }
+
+    public List<MemberDTO> findAll() {
+        return sql.selectList("Member.findAll");
+    }
 }

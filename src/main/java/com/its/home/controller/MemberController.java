@@ -63,7 +63,25 @@ public class MemberController {
         return "myPage";
     }
 
+
+    @GetMapping("/myInFo")
+    public String myInFoForm(){
+        return "myInFo";
+    }
+
+    @GetMapping ("/findAll")
+    public String myInFo(Model model){
+        List<MemberDTO> memberList = memberService.findAll();
+        model.addAttribute("memberList",memberList);
+        return "myInFo";
+    }
+
+
 }
+
+
+
+//    @GetMapping ("/")
 //    @GetMapping ("/findby")
 //
 //}

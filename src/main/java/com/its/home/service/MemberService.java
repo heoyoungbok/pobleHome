@@ -71,6 +71,11 @@ public class MemberService {
     public void modify(MemberDTO memberDTO) {
         memberRepository.modify(memberDTO);
     }
+
+    public List<MemberDTO> findAll() {
+        List<MemberDTO> memberDTOList = memberRepository.findAll();
+        return memberDTOList;
+    }
 }
 
 
