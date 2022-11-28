@@ -93,13 +93,17 @@ public class BoardController {
         return "redirect:/board/";
     }
 
-   @GetMapping("/countTurtle")
-    public String countTurtle(Model model)  {
-        BoardDTO hits = boardService.countTurtle();
-        model.addAttribute("hits", hits);
-        return "myPage";
+        @GetMapping("/Hits")
+        public String findHits(@RequestParam("id") Long id, Model model)  {
+           BoardDTO boardDTO = boardService.findHits(id);
+            model.addAttribute("boardDTO", boardDTO);
+            System.out.println("boardDTO = " + boardDTO);
+            return "myPage";
+        }
+
+
+
     }
 
 
-}
 

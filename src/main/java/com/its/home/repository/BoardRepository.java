@@ -62,10 +62,7 @@ public class BoardRepository {
         sql.delete("Board.delete",id);
     }
 
-    public BoardDTO countTurtle() {
-        return sql.selectOne("Board.countTurtle");
+    public BoardDTO findHits(Long id) {
+        return sql.selectOne("Board.findHits",id);
     }
-
-
-
 }
