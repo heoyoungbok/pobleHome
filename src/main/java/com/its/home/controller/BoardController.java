@@ -92,5 +92,14 @@ public class BoardController {
         boardService.delete(id);
         return "redirect:/board/";
     }
+
+   @GetMapping("/countTurtle")
+    public String countTurtle(Model model)  {
+        BoardDTO hits = boardService.countTurtle();
+        model.addAttribute("hits", hits);
+        return "myPage";
+    }
+
+
 }
 

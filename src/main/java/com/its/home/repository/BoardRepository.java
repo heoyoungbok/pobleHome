@@ -61,4 +61,11 @@ public class BoardRepository {
     public void delete(Long id) {
         sql.delete("Board.delete",id);
     }
+
+    public BoardDTO countTurtle() {
+        return sql.selectOne("Board.countTurtle");
+    }
+
+
+
 }

@@ -92,6 +92,13 @@ public class BoardService {
     public void delete(Long id) {
         boardRepository.delete(id);
     }
+
+    public BoardDTO countTurtle(){
+        return boardRepository.countTurtle();
+    }
 }
+
+
+
 
 
