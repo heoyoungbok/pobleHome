@@ -93,12 +93,9 @@ public class BoardService {
         boardRepository.delete(id);
     }
 
-    public BoardDTO countTurtle(){
-        return boardRepository.countTurtle();
+    public BoardDTO findHits(Long id) {
+      return boardRepository.findHits(id);
     }
 }
-
-
-
 
 

@@ -25,7 +25,7 @@ public class BoardController {
 
     @GetMapping("/save")
     public String saveForm(){
-        return "boardSave";
+        return "boardPages/boardSave";
     }
 
     @PostMapping("/save")
@@ -37,7 +37,7 @@ public class BoardController {
     public String findAll(Model model){
         List<BoardDTO> boardList = boardService.findAll();
         model.addAttribute("boardList",boardList);
-        return "boardList";
+        return "boardPages/boardList";
     }
 
     @GetMapping
@@ -50,7 +50,7 @@ public class BoardController {
         model.addAttribute("page",page);
         List<CommentDTO> commentDTOList = commentService.findAll(id);
         model.addAttribute("commentList",commentDTOList);
-        return "boardDetail";
+        return "boardPages/boardDetail";
     }
 
 
@@ -61,14 +61,14 @@ public class BoardController {
         model.addAttribute("boardList",pagingList);
         model.addAttribute("paging",pageDTO);
 
-        return "boardList";
+        return "boardPages/boardList";
     }
 
     @GetMapping("/update")
     public String updateForm(@RequestParam("id") Long id, Model model){
         BoardDTO boardDTO = boardService.findById(id);
         model.addAttribute("board",boardDTO);
-        return "boardUpdate";
+        return "boardPages/boardUpdate";
     }
 
     @PostMapping("/update")
@@ -77,14 +77,14 @@ public class BoardController {
         BoardDTO dto = boardService.findById(boardDTO.getId());
         model.addAttribute("board",dto);
 
-        return "boardDetail";
+        return "boardPages/boardDetail";
     }
 
     @GetMapping("deleteCheck")
     public String deleteCheck(@RequestParam("id")Long id, Model model){
         BoardDTO boardDTO = boardService.findById(id);
         model.addAttribute("board",boardDTO);
-        return "deleteCheck";
+        return "boardPages/deleteCheck";
     }
 
     @PostMapping("/delete")
@@ -93,13 +93,17 @@ public class BoardController {
         return "redirect:/board/";
     }
 
-   @GetMapping("/countTurtle")
-    public String countTurtle(Model model)  {
-        BoardDTO hits = boardService.countTurtle();
-        model.addAttribute("hits", hits);
-        return "myPage";
+        @GetMapping("/Hits")
+        public String findHits(@RequestParam("id") Long id, Model model)  {
+           BoardDTO boardDTO = boardService.findHits(id);
+            model.addAttribute("boardDTO", boardDTO);
+            System.out.println("boardDTO = " + boardDTO);
+            return "memberPages/myPage";
+        }
+
+
+
     }
 
 
-}
 

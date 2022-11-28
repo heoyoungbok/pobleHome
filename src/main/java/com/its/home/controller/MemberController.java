@@ -19,14 +19,14 @@ public class MemberController {
 
     @GetMapping("/save")
     public String saveForm() {
-        return "memberSave";
+        return "memberPages/memberSave";
     }
 
     @PostMapping("/save")
     public String save(@ModelAttribute MemberDTO memberDTO, Model model) {
         boolean result = memberService.save(memberDTO);
         model.addAttribute("result", result);
-        return "memberLogin";
+        return "memberPages/memberLogin";
     }
 
     @GetMapping("/joinCheck")
@@ -48,7 +48,7 @@ public class MemberController {
         String memberLoginID = (String) session.getAttribute("loginID");
         MemberDTO memberDTO = memberService.findById(memberLoginID);
         model.addAttribute("member",memberDTO);
-        return "modify";
+        return "memberPages/modify";
     }
     @PostMapping("/modify")
     public String modify(@ModelAttribute MemberDTO memberDTO, Model model){
@@ -60,20 +60,20 @@ public class MemberController {
 
     @GetMapping("/myPage")
     public String myPageForm(){
-        return "myPage";
+        return "memberPages/myPage";
     }
 
 
     @GetMapping("/myInFo")
     public String myInFoForm(){
-        return "myInFo";
+        return "memberPages/myInFo";
     }
 
     @GetMapping ("/findAll")
     public String myInFo(Model model){
         List<MemberDTO> memberList = memberService.findAll();
         model.addAttribute("memberList",memberList);
-        return "myInFo";
+        return "memberPages/myInFo";
     }
 
 

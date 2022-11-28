@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
-import java.lang.reflect.Member;
 
 @Controller
 public class HomeController {
@@ -26,7 +25,7 @@ private MemberService memberService;
 //    }
     @GetMapping("/login")
     public  String loginForm(){
-        return "memberLogin";
+        return "memberPages/memberLogin";
     }
     @PostMapping("/login")
     public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session, Model model) {
@@ -36,7 +35,7 @@ private MemberService memberService;
             model.addAttribute("modelLoginID", memberDTO.getMemberLoginID());
             return "redirect:/";
         } else {
-            return "memberLogin";
+            return "memberPages/memberLogin";
         }
     }
 
